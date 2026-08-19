@@ -1,0 +1,342 @@
+/* ==========================================================================
+   1. Сброс стилей и базовые настройки (Официальный Telegram стиль)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f4f5; /* Мягкий светло-серый фон для объема карточек */
+    color: #000000;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Основная обертка для центрирования контента */
+.site-wrapper {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Вспомогательные классы цветов */
+.text-blue { color: #2481cc; }
+
+/* ==========================================================================
+   2. Шапка сайта (Header)
+   ========================================================================== */
+.tg-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo-container {
+    margin-bottom: 16px;
+}
+
+.tg-logo {
+    width: 110px;
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.05));
+}
+
+.tg-title {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.tg-subtitle {
+    font-size: 17px;
+    color: #707070;
+    margin-bottom: 14px;
+}
+
+.tg-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(36, 129, 204, 0.1);
+    color: #2481cc;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+/* ==========================================================================
+   3. Сетка основного контента (Двухколоночный Flexbox)
+   ========================================================================== */
+.tg-main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+/* Левая колонка занимает больше пространства под инфо блоки */
+.tg-left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Правая колонка жестко фиксирована под размер смартфона */
+.tg-right-column {
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 40px;
+}
+
+/* ==========================================================================
+   4. Стили карточек информации и новостей
+   ========================================================================== */
+.tg-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    border-bottom: 1px solid #f0f0f2;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+}
+
+.card-header h2 {
+    font-weight: 600;
+    color: #111111;
+}
+
+/* Лента новостей */
+.news-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.news-item {
+    position: relative;
+    padding-left: 14px;
+    border-left: 3px solid #dbdee3;
+}
+
+.news-item.alert {
+    border-left-color: #e53935; /* Красная линия для важных новостей */
+}
+
+.news-item.pr-release {
+    border-left-color: #2481cc; /* Синяя линия для будущих апдейтов */
+}
+
+.news-date {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #707070;
+    margin-bottom: 4px;
+}
+
+.news-item.alert .news-date { color: #e53935; }
+.news-item.pr-release .news-date { color: #2481cc; }
+
+.news-item p {
+    font-size: 14.5px;
+    color: #333333;
+}
+
+/* Сетка фич / Особенностей */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.feature-box {
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-2px);
+}
+
+.feature-box i {
+    font-size: 20px;
+    color: #2481cc;
+    margin-bottom: 8px;
+}
+
+.feature-box h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #111111;
+}
+
+.feature-box p {
+    font-size: 13px;
+    color: #666666;
+}
+
+/* ==========================================================================
+   5. Интерактивный скриншот телефона
+   ========================================================================== */
+.screenshot-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+}
+
+.tg-screenshot {
+    width: 100%;
+    height: auto;
+    border-radius: 32px; /* Закругление под современный экран смартфона */
+    border: 8px solid #111111; /* Имитация рамки телефона */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    display: block;
+    background-color: #fff;
+}
+
+/* ==========================================================================
+   6. Кнопка скачивания приложения
+   ========================================================================== */
+.tg-download-section {
+    text-align: center;
+    width: 100%;
+    margin: 20px 0 40px 0;
+}
+
+.tg-main-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #2481cc;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 16px 48px;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(36, 129, 204, 0.25);
+    transition: all 0.2s ease-in-out;
+}
+
+.tg-main-button:hover {
+    background-color: #2074b7;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(36, 129, 204, 0.35);
+}
+
+.tg-main-button:active {
+    transform: translateY(1px);
+}
+
+.tg-main-button i {
+    font-size: 22px;
+}
+
+.download-info {
+    font-size: 12px;
+    color: #888888;
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   7. Подвал (Footer)
+   ========================================================================== */
+.tg-footer {
+    text-align: center;
+    border-top: 1px solid #e0e0e2;
+    width: 100%;
+    padding-top: 24px;
+    margin-top: 20px;
+}
+
+.footer-links {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #666666;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0 4px;
+}
+
+.footer-links a:hover {
+    color: #2481cc;
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 13px;
+    color: #999999;
+}
+
+.coder-link {
+    color: #2481cc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.coder-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   8. Адаптивность для мобильных устройств (Responsive)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .site-wrapper {
+        padding: 30px 15px;
+    }
+    
+    .tg-main-content {
+        flex-direction: column-reverse; /* На телефонах скриншот будет НАД новостями */
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .tg-right-column {
+        width: 100%;
+        position: static;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr; /* Фичи встают в одну колонку на узком экране */
+    }
+    
+    .tg-title {
+        font-size: 30px;
+    }
+    
+    .tg-main-button {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+}
